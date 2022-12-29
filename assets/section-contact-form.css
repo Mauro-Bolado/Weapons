@@ -1,0 +1,56 @@
+.contact img {
+  max-width: 100%;
+}
+
+.contact .form__message {
+  align-items: flex-start;
+}
+
+.contact .icon-success {
+  margin-top: 0.2rem;
+}
+
+.contact .field {
+  margin-bottom: 1.5rem;
+}
+
+form#ContactForm .field {
+  border: 2px solid var(--gallery);
+}
+
+.contact__button button:before, .contact__button button:after, 
+.contact__button button:hover:after, 
+.contact__button .button:not([disabled]):hover:after {
+  box-shadow: none;
+}
+
+.contact__button button {
+  background: linear-gradient(91.23deg,#00ACB7 0%,#0076CC 100%);
+  border: none;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+@media screen and (min-width: 750px) {
+  .contact .field {
+    margin-bottom: 2rem;
+  }
+}
+
+.contact__button {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}

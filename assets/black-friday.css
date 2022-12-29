@@ -1,0 +1,83 @@
+.section-black-friday {
+    background: url('https://cdn.shopify.com/s/files/1/0616/5250/0685/files/black-friday.png?v=1667220047') no-repeat;
+    background-size: cover;
+    background-postion: center center;
+  }
+
+  .black-friday-content h4 {
+     font-family: 'Barlow Condensed', sans-serif;
+     font-size: calc(var(--font-heading-scale) * 2.2rem);
+     font-weight: 700;
+     color: var(--white);
+     text-transform: uppercase;
+     margin: 1.2rem 0 0;
+     text-align: right;
+  }
+
+  .count-down {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: calc(var(--font-body-scale) * 1.4rem);
+    color: var(--white);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  div#countdown ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: auto;
+    margin-left: 0;
+}
+
+  div#countdown ul li span {
+    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    font-weight: 700;
+  }
+
+  div#countdown ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+  
+   @media screen and (max-width: 989px){
+    .black-friday-content {
+      justify-content: space-between;
+    }
+
+    .black-friday-content h4 {
+      font-size: calc(var(--font-heading-scale) * 2rem);
+      text-align: left;
+    }
+
+    div#countdown ul li span {
+      font-size: calc(var(--font-heading-scale) * 2rem);
+    }
+
+     div#countdown ul {
+       justify-content: space-around;
+       padding-left: 0;
+     }
+
+  }
+
+  @media screen and (max-width: 749px){
+ 
+    .black-friday-content h4 {
+      font-size: calc(var(--font-heading-scale) * 1.6rem);
+      text-align: center;
+    }
+
+    div#countdown ul li span {
+      font-size: calc(var(--font-heading-scale) * 2rem);
+    }
+    div#countdown ul {
+        margin: auto;
+    }
+    .black-friday-content h4 {
+      margin-top: 0;
+    }
+
+  }

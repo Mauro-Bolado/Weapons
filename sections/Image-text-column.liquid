@@ -1,0 +1,158 @@
+{{ 'image-text-column.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-image-text-column {
+    background: {{ section.settings.background_img }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+
+
+
+<div class="section-image-text-column icon-columns collection">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="desktop-block">
+      {%- for block in section.blocks -%}
+        <div class="grid--3-col-tablet grid--1-col">
+          <div class="icon-text">
+            {{ block.settings.image | image_url: width: 24 | image_tag:
+                loading: 'lazy',
+                widths: '275, 550, 710, 1420',
+                class: 'multicolumn-card__image'
+            }} 
+            {{ block.settings.title }}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+
+      <div class="owl-carousel mobile-carosel" id="carousel">
+        {%- for block in section.blocks -%}
+            <div class="item icon-text">
+              {{ block.settings.image | image_url: width: 24 | image_tag:
+                loading: 'lazy',
+                widths: '275, 550, 710, 1420',
+                class: 'multicolumn-card__image'
+            }} 
+            {{ block.settings.title }}
+            </div>
+        {%- endfor -%}
+      </div>
+    
+    
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+  jQuery("#carousel").owlCarousel({
+    autoplay: true,
+    lazyLoad: true,
+    loop: true,
+    center:true,
+    dots: false,
+    responsiveClass: true,
+    autoHeight: true,
+    autoplayTimeout: 20000,
+    smartSpeed: 2000,
+    nav: false,
+    responsive: {
+      0: {
+        items: 1
+      },
+  	  
+  	576: {
+        items: 1
+      }
+    }
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "t:sections.image-text-column.name",
+    "class": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_img",
+        "label": "t:sections.image-text-column.settings.background_img.label"
+      },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 12
+    }
+    ],
+     "blocks": [
+        {
+          "type": "column",
+          "name": "t:sections.image-with-text.blocks.column.name",
+          "limit": 3,
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "t:sections.image-text-column.blocks.column.settings.image.label"
+            },
+            {
+              "type": "richtext",
+              "id": "title",
+              "default": "<p>text with image</p>",
+              "label": "t:sections.image-text-column.blocks.column.settings.title.label"
+            }
+         ]
+       }
+    ],
+      "presets": [
+      {
+        "name": "t:sections.image-text-column.presets.name",
+        "blocks": [
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

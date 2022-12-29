@@ -1,0 +1,156 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'recently-view-product.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<div class="recently-view-product section-{{ section.id }}-padding">
+    <div class="page-width">
+        <h4 class="product-recommendations__heading h2">{{ section.settings.heading | escape }}</h4>
+        <slider-component class="slider-mobile-gutter slider-component-desktop">
+            <ul class="recently-viewed grid product-grid custom-product-slider-list contains-card contains-card--product contains-card--standard grid--4-col-desktop grid--2-col-tablet-down slider slider--desktop slider--tablet grid--peek" role="list">
+                    <!-- Recently viewed products will appear here -->
+            </ul>
+        </slider-component>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    function setRecentlyViewedProducts() {
+        const productData = {
+            productTitle: " {{ product.title }}", productImg: "{{ product.featured_media | image_url: width: 533 }}",
+            imgWidth: "{{ product.featured_media.width }}", imgHeight: "{{ product.featured_media.height }}",
+            productPrice: "{{ product.price | money_with_currency }}", productUrl: "{{ product.url }}",
+            productImageAltText: "{{ product.featured_media.alt | escape }}"
+        }; const productList = []; let jsonResp,
+            jsonRespArr, jsonRespArrStr; const numberOfProducts = 5; productList.push(productData); const
+                currProductPageTitle = productData.productTitle; const productDataString = JSON.stringify(productList); const
+                    localData = localStorage.getItem("recentlyViewedProduct"); if (localData === null) {
+                        localStorage.setItem("recentlyViewedProduct", productDataString);
+                    } else if (localData) {
+                        const
+                        oldProductData = localStorage.getItem("recentlyViewedProduct"); const
+                            countProductData = (oldProductData.match(/productTitle/g) || []).length; const
+                                sameProduct = oldProductData.includes(currProductPageTitle); if (countProductData < numberOfProducts &&
+                                    sameProduct == false) {
+                                        jsonResp = JSON.parse(oldProductData); jsonRespArr = jsonResp.concat(productList);
+                            jsonRespArrStr = JSON.stringify(jsonRespArr); localStorage.setItem("recentlyViewedProduct", jsonRespArrStr);
+                        }
+                        else if (countProductData >= numberOfProducts && sameProduct == false) {
+                            jsonResp = JSON.parse(oldProductData);
+                            jsonResp.shift();
+                            jsonRespArr = jsonResp.concat(productList);
+                            jsonRespArr = JSON.stringify(jsonRespArr);
+                            localStorage.setItem("recentlyViewedProduct", jsonRespArr);
+                        }
+                    }
+    }
+
+    setRecentlyViewedProducts();
+    const localViewed = localStorage.recentlyViewedProduct;
+    function getRecentlyViewedProducts() {
+        const productData = JSON.parse(localStorage.getItem("recentlyViewedProduct"));
+        const recentlyViewedHtml = [];
+        productData.map(item => {
+            recentlyViewedHtml.unshift(`
+        <li class="grid__item">
+            <div class="card-wrapper underline-links-hover">
+                <div class="card card--standard card--media " style="--ratio-percent: 100%;">
+                    <div class="card__inner color-background-2 gradient ratio" style="--ratio-percent: 100%;">
+                        <div class="card__media">
+                            <div class="media media--transparent media--hover-effect">
+                                <img class="motion-reduce" src="${item.productImg}" width="${item.imgWidth}"
+                                    height="${item.imgHeight}" loading="lazy" alt="${item.productImageAltText}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__information">
+                            <h4 class="card__heading h5">
+                                <a class="full-unstyled-link" href="${item.productUrl}">${item.productTitle}</a>
+                            </h4>
+                            <div class="card-information">
+                                <div class="price ">
+                                    <div class="price__container">
+                                        <div class="price-item price-item--regular">
+                                            ${item.productPrice}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        `);
+        });
+        const newProductData = `${recentlyViewedHtml.join("")}`;
+        const fullContent = document.getElementsByClassName("recently-viewed");
+        fullContent[0].innerHTML = newProductData;
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        getRecentlyViewedProducts();
+    });
+
+</script>
+
+
+    {% schema %}
+        {
+            "name": "Recent Products",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "default": "Recently Viewed",
+                    "label": "Title"
+                },
+                {
+                    "type": "header",
+                    "content": "t:sections.all.padding.section_padding_heading"
+                },
+                {
+                    "type": "range",
+                    "id": "padding_top",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "t:sections.all.padding.padding_top",
+                    "default": 36
+                },
+                {
+                    "type": "range",
+                    "id": "padding_bottom",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "t:sections.all.padding.padding_bottom",
+                    "default": 36
+                }
+            ],
+            "presets": [
+            {
+                "name": "Recentely View Products"
+            }
+            ]
+        }
+    {% endschema %}
+

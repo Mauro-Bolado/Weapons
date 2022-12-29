@@ -1,0 +1,99 @@
+.custom-contact form .field {
+    border: 1px solid rgba(var(--color-foreground),.75);
+}
+
+.custom-contact form .field label{
+    color: var(--manatee);
+    font-size: calc(var(--font-body-scale) * 1.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.custom-contact form .field .field__input:focus~.field__label {
+    left: 10px;
+}
+
+.custom-contact form .field .field__input:focus {
+    padding-left: 1rem;
+}
+
+.custom-contact form .field textarea {
+    min-height: 25rem;
+}
+
+.custom-contact form .contact__button {
+    text-align: right;
+}
+
+.custom-contact form .contact__button button.button {
+    background-color: linear-gradient(91.23deg,#00ACB7 0%,#0076CC 100%);
+    border: none;
+    color: var(--white);
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: 200px;
+    width: 100%;
+}
+
+.contact-details {
+    display: grid;
+}
+
+.contact-form {
+    padding-left: 6rem;
+}
+.contact-contents .detail-content {
+    padding-bottom: 2rem;
+}
+
+.contact-contents .detail-content h4 {
+    color: var(--pelorous);
+    font-size: calc(var(--font-body-scale) * 2rem);
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+}
+
+.contact-contents .detail-content p{
+    color: var(--tuna);
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.contact-contents .detail-content a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 990px){
+    .contact-form {
+        padding-left: 4rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .contact-details {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        row-gap: var(--grid-desktop-vertical-spacing);
+        column-gap: var(--grid-desktop-horizontal-spacing);
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .contact-form {
+        padding-left: 0;
+        padding-top: 4rem;
+    }
+    .contact-contents .detail-content {
+        text-align: center;
+    }
+    .contact-contents .detail-content p {
+        font-size: calc(var(--font-body-scale) * 1.6rem);
+    }
+    .custom-contact form .contact__button button.button {
+        max-width: 100%;
+    }
+}

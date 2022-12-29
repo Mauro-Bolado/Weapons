@@ -1,0 +1,138 @@
+{{ 'black-friday.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-black-friday">
+  <div class="page-width section-{{ section.id }}-padding">
+    
+    <div class="black-friday-details">
+      <div class="grid grid--2-col grid--1-col black-friday-content">
+        <div class="grid__item">
+          <h4>{{ section.settings.title | escape }}</h4>
+        </div>
+
+        <div class="grid__item count-down">
+           <div id="countdown">
+              <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Mins</li>
+                <li><span id="seconds"></span>Secs</li>
+              </ul>
+            </div>
+        </div>
+        
+       </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+
+  
+    (function () {
+      const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+    
+      let today = new Date(),
+          dd = String(today.getDate()).padStart(2, "0"),
+          mm = String(today.getMonth() + 1).padStart(2, "0"),
+          yyyy = today.getFullYear(),
+
+          offer = "{{ section.settings.date_picker | escape }}";
+          
+      
+      today = mm + "/" + dd + "/" + yyyy;
+            
+      const countDown = new Date(offer).getTime(),
+          x = setInterval(function() {    
+
+         
+            const now = new Date().getTime(),
+                  distance = countDown - now;
+            
+            document.getElementById("days").innerText = Math.floor(distance / (day)),
+              document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+              document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+              document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+    
+            //do something later when date is reached
+            if (distance < 0) {
+              document.getElementById("countdown").style.display = "none";
+              clearInterval(x);
+            }
+            //seconds
+          }, 0)
+      }());
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "t:sections.black-friday.name",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Title",
+        "label": "t:sections.black-friday.settings.title.label"
+      },
+      {
+        "type": "text",
+        "id": "date_picker",
+        "label": "Choose date",
+        "default": "12/24/2022",
+        "info": "e.g. mm/dd/yyyy"
+      },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+    ],
+      "presets": [
+      {
+        "name": "t:sections.black-friday.presets.name"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

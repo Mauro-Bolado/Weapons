@@ -1,0 +1,75 @@
+.technical-details .page-width {
+    border-top: 2px solid var(--mercury);
+    border-bottom: 2px solid var(--mercury);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.technical-details .heading-title h4 {
+    font-family: Barlow Condensed,sans-serif;
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.general-details {
+    padding-top: 3rem;
+}
+
+.technical-details .general-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.technical-details .general-details .general-listing {
+    flex-basis: 47%;
+}
+
+.technical-details .general-details .general-listing h4 {
+    margin: 0;
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-weight: 700;
+    color: var(--white);
+    background: var(--mini-shaft);
+    padding: 1rem 1.6rem;
+    border-radius: 0.5rem;
+}
+
+.technical-details .general-details .general-listing ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.technical-details .general-details .general-listing ul li {
+    padding: 1rem 1.6rem;
+    border-bottom: 2px solid var(--mercury);
+    font-size: calc(var(--font-body-scale) * 1.5rem);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.technical-details .general-details .general-listing ul li span {
+    flex-basis: 48%;
+}
+
+.technical-details .general-details .general-listing ul li .title {
+    font-weight: 900;
+    margin: 0;
+}
+
+@media screen and (max-width: 989px) {
+    .technical-details .heading-title h4 {
+        font-size: calc(var(--font-heading-scale) * 3.2rem);
+    }
+    .technical-details .general-details .general-listing {
+        flex-basis: 100%;
+    }
+    .technical-details .general-details .general-listing:first-child {
+        padding-bottom: 3rem;
+    }
+
+}

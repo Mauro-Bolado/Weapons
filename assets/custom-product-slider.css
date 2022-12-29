@@ -1,0 +1,193 @@
+.custom-product-slider {
+    margin: auto;
+}
+
+
+.collection.custom-product-slider .collection__title h4 {
+    font-family: Barlow Condensed,sans-serif;
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.collection.custom-product-slider .collection__title .icon-arrow {
+    width: 3rem;
+}
+
+.custom-product-slider-list {
+
+}
+
+.custom-product-slider {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+}
+
+.rating-star:before {
+    background: var(--selective-yellow) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+}
+
+.custom-product-slider .card__content .quick-add .quick-add__submit {
+    background: linear-gradient(91.23deg, var(--trinidad) 0%, var(--monza) 100%);
+    color: var(--white);
+    font-weight: 700;
+    font-size: calc(var(--font-body-scale) * 1.5rem);
+}
+
+.custom-product-slider .card__content .quick-add .quick-add__submit::after {
+    box-shadow: none;
+}
+
+.btn-custom-img {
+    position: relative;
+    top: 0.4rem;
+}
+
+.card__content h4.card__heading.h5 {
+    font-size: calc(var(--font-body-scale) * 1.5rem);
+    font-weight: 700;
+    color: var(--mini-shaft);
+    padding: 1rem 0;
+}
+
+.product-card-wrapper .card--standard .card__inner {
+    max-height: 140px;
+    height: 100%;
+    background: var(--white);
+}
+
+.product-card-wrapper .card__media .media img {
+    max-width: 255px !important;
+    max-height: 140px;
+}
+
+.card-wrapper .rating-star {
+    --font-size: 1.8 !important;
+}
+
+p.rating-count.caption {
+    color: var(--azure);
+    font-size: calc(var(--font-body-scale) * 1.3rem);
+    font-weight: 700;
+}
+
+.card-information .product-vendor-text {
+    font-size: calc(var(--font-body-scale) * 1.3rem);
+    font-weight: 700;
+    color: var(--mini-shaft);
+}
+
+.card-information .price .price__regular .price-item--regular,
+.card-information .price span.price-item.price-item--sale.price-item--last {
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    font-weight: 700;
+}
+
+.price__container .price__regular {
+    display: none;
+}
+
+.price__container  .price__sale.price_sale_block {
+    display: block;
+}
+
+.card__badge.bottom.left {
+    position: relative;
+    top: 1rem;
+}
+
+.badge {
+    border-radius: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+}
+
+.badge.sale-badge {
+    background: var(--trinidad);
+}
+
+.quick-add-modal__content-info div#judgeme_product_reviews {
+    display: none;
+}
+
+.custom-product-slider .slider-buttons.no-js-hidden {
+    margin-top: 3rem;
+    justify-content: flex-start;
+    margin-left: 3.6rem;
+}
+
+.custom-product-slider .custom-slider-button--prev,
+.custom-product-slider .custom-slider-button--next {
+    border: 2px solid var(--mini-shaft);
+    border-radius: 50%;
+}
+
+.slider-button[disabled], 
+.custom-product-slider .custom-slider-button--prev[disabled],
+.custom-product-slider .custom-slider-button--next[disabled] {
+    border-color: rgba(var(--color-foreground),.3);
+}
+
+.custom-slider-button--prev .icon {
+    transform: rotate(-180deg);
+}
+
+.custom-product-slider .slider-button .icon {
+    height: 1.5rem;
+    width: 2.3rem;
+}
+
+.slider-counter.caption {
+    padding-left: 2rem;
+    font-size: calc(var(--font-body-scale) * 1.3rem);
+    color: var(--dove_gray);
+    font-weight: 500;
+}
+
+
+
+
+
+@media screen and (min-width: 990px) {
+    
+
+    /* .custom-product-slider slider-component.slider-mobile-gutter.slider-component-desktop {
+        width: calc(100% - 35rem);
+    } */
+
+    .custom-product-slider .slider--desktop .slider__slide:first-child {
+        margin-left: 3rem !important;
+    }
+
+    .card__content h4.card__heading.h5 {
+        min-height: 8rem;
+    }
+
+}
+
+
+@media screen and (max-width: 989px) {
+    .custom-product-slider {
+        flex-direction: column;
+    }
+    .collection.custom-product-slider .collection__title {
+        width: 100%;
+        max-width: 100%;
+    }
+    slider-component.slider-mobile-gutter.slider-component-desktop {
+        width: 100%;
+    }
+    .custom-product-slider .slider.slider--tablet.contains-card--standard .slider__slide:not(.collection-list__item--no-media) {
+        width: 25%;
+        min-width: 250px;
+    }
+    .collection.custom-product-slider .collection__title h4 {
+        font-size: calc(var(--font-heading-scale) * 3.2rem);
+    }
+    .collection.custom-product-slider .collection__title .icon-arrow {
+        display: none;
+    }
+}

@@ -1,0 +1,35 @@
+
+.innerpage-heading {
+    background-color: var(--elm);
+    padding: 8rem 0 8rem;
+}
+
+.innerpage-heading h4 {
+    margin: 0;
+    font-size: calc(var(--font-body-scale) * 4.8rem);
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.page-width.innerpage-content {
+    padding: 7rem 0;
+}
+
+.innerpage-content p,
+.innerpage-content .rte {
+    font-size: calc(var(--font-body-scale) * 1.6rem);
+    color: var(--mini-shaft);
+    font-weight: 500;
+}
+
+.innerpage-content h4 {
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    color: var(--mini-shaft);
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+
+

@@ -1,0 +1,36 @@
+{%- comment -%} {%- liquid
+  if cart == empty
+    render 'icon-cart-empty'
+  else
+    render 'icon-cart'
+  endif
+-%}
+<span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+{%- if cart != empty -%}
+  <div class="cart-count-bubble">
+      {%- if cart.item_count < 100 -%}
+        <span aria-hidden="true">{{ cart.item_count }}</span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%} {%- endcomment -%}
+
+
+ 
+{%- if cart != empty -%}
+  <div class="blue-txt blue-cart-items">
+    {%- if cart.item_count < 100 -%}
+      <span aria-hidden="true">{{ cart.item_count | append: ' Items' | escape }} </span>
+      <img src="//cdn.shopify.com/s/files/1/0616/5250/0685/files/cart.png?v=1651596817" loading="lazy" alt="">
+    {%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count | append: ' Items' }}</span>
+  </div>
+  
+  {%- else -%}
+  <div class="blue-txt blue-cart-items zero-item">
+      <span aria-hidden="true">0 Items </span>
+      <img src="//cdn.shopify.com/s/files/1/0616/5250/0685/files/cart.png?v=1651596817" loading="lazy" alt="">
+  </div>
+  {%- endif -%}
+  
+  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>

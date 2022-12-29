@@ -1,0 +1,134 @@
+    <div class="general-details">
+        <div class="general-listing">
+            <h4 class="title genral-title">General</h4>
+                <ul>
+                    {%- if product.metafields.custom.product_general_1.value != blank -%}
+                        <li>
+                            <span class="title">Weapon Type </span>
+                            <span class="detail">{{ product.metafields.custom.product_general_1.value }}</span>
+                        </li>
+                    {%- endif -%}
+                    {%- if product.metafields.custom.product_general_2.value != blank -%}
+                        <li>
+                            <span class="title">FPS (Feet Per Second) </span>
+                            <span class="detail">{{ product.metafields.custom.product_general_2.value }}</span>
+                        </li>
+                    {%- endif -%}
+                    {%- if product.metafields.custom.product_general_3.value != blank -%}
+                        <li>
+                            <span class="title">Pre-Built </span>
+                            <span class="detail">{{ product.metafields.custom.product_general_3.value }}</span>
+                        </li>
+                    {%- endif -%}
+                    {%- if product.metafields.custom.product_general_4.value != blank -%}
+                        <li>
+                            <span class="title">Included Items </span>
+                            <span class="detail">{{ product.metafields.custom.product_general_4.value }}</span>
+                        </li>
+                    {%- endif -%}
+                    {%- if product.metafields.custom.product_general_5.value != blank -%}
+                        <li>
+                            <span class="title">User Skill Level </span>
+                            <span class="detail">{{ product.metafields.custom.product_general_5.value }}</span>
+                        </li>
+                    {%- endif -%}
+
+                </ul>
+                {%- if product.metafields.custom.product_construction_1.value != blank -%}
+                    <h4 class="title genral-title">Construction</h4>
+                    <ul>
+                        {%- if product.metafields.custom.product_construction_1.value != blank -%}
+                            <li>
+                                <span class="title">Colour </span>
+                                <span class="detail">{{ product.metafields.custom.product_construction_1.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_construction_2.value != blank -%}
+                            <li>
+                                <span class="title">Construction </span>
+                                <span class="detail">{{ product.metafields.custom.product_construction_2.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_construction_3.value != blank -%}
+                            <li>
+                                <span class="title">External Construction </span>
+                                <span class="detail">{{ product.metafields.custom.product_construction_3.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_construction_4.value != blank -%}
+                            <li>
+                                <span class="title">Internal Construction </span>
+                                <span class="detail">{{ product.metafields.custom.product_construction_4.value }}</span>
+                            </li>
+                        {%- endif -%} 
+                    </ul>
+                {% endif %}
+            </div>
+            
+            <div class="general-listing">
+                <h4 class="title genral-title">General</h4>
+                    <ul>
+                        {%- if product.metafields.custom.product_general_1.value != blank -%}
+                            <li>
+                                <span class="title">Weapon Type </span>
+                                <span class="detail">{{ product.metafields.custom.product_general_1.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_general_2.value != blank -%}
+                            <li>
+                                <span class="title">FPS (Feet Per Second) </span>
+                                <span class="detail">{{ product.metafields.custom.product_general_2.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_general_3.value != blank -%}
+                            <li>
+                                <span class="title">Pre-Built </span>
+                                <span class="detail">{{ product.metafields.custom.product_general_3.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_general_4.value != blank -%}
+                            <li>
+                                <span class="title">Included Items </span>
+                                <span class="detail">{{ product.metafields.custom.product_general_4.value }}</span>
+                            </li>
+                        {%- endif -%}
+                        {%- if product.metafields.custom.product_general_5.value != blank -%}
+                            <li>
+                                <span class="title">User Skill Level </span>
+                                <span class="detail">{{ product.metafields.custom.product_general_5.value }}</span>
+                            </li>
+                        {%- endif -%}
+    
+                    </ul>
+                    {%- if product.metafields.custom.product_construction_1.value != blank -%}
+                        <h4 class="title genral-title">Construction</h4>
+                        <ul>
+                            {%- if product.metafields.custom.product_construction_1.value != blank -%}
+                                <li>
+                                    <span class="title">Colour </span>
+                                    <span class="detail">{{ product.metafields.custom.product_construction_1.value }}</span>
+                                </li>
+                            {%- endif -%}
+                            {%- if product.metafields.custom.product_construction_2.value != blank -%}
+                                <li>
+                                    <span class="title">Construction </span>
+                                    <span class="detail">{{ product.metafields.custom.product_construction_2.value }}</span>
+                                </li>
+                            {%- endif -%}
+                            {%- if product.metafields.custom.product_construction_3.value != blank -%}
+                                <li>
+                                    <span class="title">External Construction </span>
+                                    <span class="detail">{{ product.metafields.custom.product_construction_3.value }}</span>
+                                </li>
+                            {%- endif -%}
+                            {%- if product.metafields.custom.product_construction_4.value != blank -%}
+                                <li>
+                                    <span class="title">Internal Construction </span>
+                                    <span class="detail">{{ product.metafields.custom.product_construction_4.value }}</span>
+                                </li>
+                            {%- endif -%} 
+                        </ul>
+                    {% endif %}
+                </div>
+
+    </div>

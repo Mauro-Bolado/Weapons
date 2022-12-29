@@ -1,0 +1,33 @@
+.custom-feature-blog .title-wrapper--no-top-margin {
+    text-align: center;
+}
+.custom-feature-blog h4.blog__title.h1{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: calc(var(--font-heading-scale) * 3.6rem);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: auto;
+}
+
+.blog-articles .article-card .card__information, 
+.blog__posts .article-card .card__information {
+    padding-left: 0;
+}
+
+.custom-feature-blog .article-card .card__heading {
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+    color: var(--black);
+    font-weight: 700;
+}
+
+.custom-feature-blog p.article-card__excerpt {
+    font-size: calc(var(--font-body-scale) * 1.6rem);
+    font-weight: 500;
+}
+
+.custom-feature-blog .card__information time {
+    font-size: calc(var(--font-body-scale) * 1.6rem);
+    font-weight: 700;
+    color: var(--dove_gray);
+}
