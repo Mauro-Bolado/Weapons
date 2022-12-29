@@ -49,7 +49,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
         <p>
           <a href="/">Home</a> 
           
-          {% if collection.metafields.custom.first_sub_category_url != blank %} 
+          {% comment %} {% if collection.metafields.custom.first_sub_category_url != blank %} 
           <span class="caret-arrow">{% render 'icon-caret' %}</span>
             {% if collection.metafields.custom.first_sub_category_url != blank %}
               <a href="{{ collection.metafields.custom.first_sub_category_url }}">{% endif %}  
@@ -62,7 +62,20 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
               <a href="{{ collection.metafields.custom.second_sub_category_url }}">{% endif %}  
                 {{ collection.metafields.custom.second_sub_category | escape }}
               {% if collection.metafields.custom.second_sub_category_url != blank %}</a>{% endif %} 
-          {% endif %}
+          {% endif %} {% endcomment %}
+          
+          {% assign categories = collection.metafields.custom.sub_category_dict | split: ',' %}
+          
+          {% for category in categories -%}
+            {%- if foorloop.length > 0 -%}
+              {% assign pair = category | split: ':' %}
+              {% assign name = pair[0] %}
+              {% assign url = pair[1] %}
+              <span class = "caret-arrow"> {% render 'icon-caret' %} </span>
+              <a href = "{{url}}"> {{name}} </a>
+            {%- endif -%}
+          {% endfor %}
+          
           <span class="caret-arrow">{% render 'icon-caret' %}</span> {{- collection.title | escape
           -}}
         </p>
